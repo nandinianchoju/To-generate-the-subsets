@@ -1,0 +1,19 @@
+#program to generate the subsets from the given array
+
+def generate(ind,subset,ans,nums):
+    if(ind==len(nums)):
+        ans.append(subset.copy())
+        return
+    subset.append(nums[ind])
+    generate(ind+1,subset,ans,nums)
+    subset.pop()
+    generate(ind+1,subset,ans,nums)
+def subsets(nums):
+    ind=0
+    ans=[]
+    subset=[]
+    generate(ind,subset,ans,nums)
+    return ans
+nums=list(map(int,input().split()))
+print(subsets(nums))
+    
